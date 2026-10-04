@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10131a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Disney Plan">
+<title>Disneyland Paris – Familienplan</title>
+<style>
+:root{
+ --bg:#f4f6f9;--card:#fff;--text:#171a22;--muted:#667080;--line:#e3e7ee;
+ --accent:#315edb;--soft:#edf2ff;--gold:#865d00;--goldbg:#fff4d6;
+ --shadow:0 5px 18px rgba(25,35,55,.08)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
+#dark:checked ~ .app{
+ --bg:#0d1016;--card:#171b24;--text:#f5f6fa;--muted:#a8b0bf;--line:#2a303d;
+ --accent:#9bb0ff;--soft:#202a46;--gold:#ffd778;--goldbg:#3a301a;--shadow:none;
+ background:var(--bg);color:var(--text)
+}
+.state{position:absolute;opacity:0;pointer-events:none}
+.app{min-height:100vh;background:var(--bg);color:var(--text)}
+header{padding:calc(env(safe-area-inset-top) + 18px) 18px 16px;background:linear-gradient(135deg,#152b69,#6040a8);color:#fff}
+header h1{font-size:22px;margin:0 0 5px} header p{font-size:13px;margin:0;opacity:.86}
+.wrap{max-width:720px;margin:auto;padding:14px 14px calc(32px + env(safe-area-inset-bottom))}
+.controls{display:flex;gap:8px;position:sticky;top:0;z-index:20;padding:8px 0;background:var(--bg)}
+.controls label{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tab,.theme{display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:13px;padding:11px 10px;font-weight:750;box-shadow:var(--shadow)}
+.tab{flex:1}.theme{width:46px}
+#day1:checked ~ .app label[for=day1],#day2:checked ~ .app label[for=day2]{background:var(--accent);color:#fff;border-color:transparent}
+.day{display:none}
+#day1:checked ~ .app #d1{display:block}
+#day2:checked ~ .app #d2{display:block}
+.summary{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:6px 0 12px;box-shadow:var(--shadow)}
+.summary b{display:block;font-size:18px}.summary span{color:var(--muted);font-size:13px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin:18px 5px 8px}
+.item{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:12px;margin:8px 0;box-shadow:var(--shadow)}
+.time{font-weight:800;font-size:13px;color:var(--accent)}.title{font-weight:750;font-size:15px}.note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.35}.star{color:#d89c00}
+.hero{border-color:#d9bd72;background:var(--goldbg)}.hero .time,.hero .title{color:var(--gold)}
+.rules{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow)}
+.rules h3{margin:0 0 10px;font-size:16px}.rules p{margin:7px 0;font-size:13px;line-height:1.45}
+.pill{display:inline-block;border-radius:99px;padding:3px 8px;font-size:11px;font-weight:800;background:var(--soft);color:var(--accent)}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:20px}
+.offline-note{font-size:12px;color:var(--muted);padding:0 4px 8px}
+@media(max-width:380px){.item{grid-template-columns:56px 1fr}.wrap{padding-left:10px;padding-right:10px}}
+</style>
+</head>
+<body>
+<input class="state" type="radio" name="day" id="day1" checked>
+<input class="state" type="radio" name="day" id="day2">
+<input class="state" type="checkbox" id="dark">
+
+<div class="app">
+<header>
+ <h1>🏰 Disneyland Paris</h1>
+ <p>Familienplan · 06.–07. Oktober 2026</p>
+</header>
+
+<main class="wrap">
+ <div class="controls">
+   <label class="tab" for="day1">06.10 · Park</label>
+   <label class="tab" for="day2">07.10 · Adventure</label>
+   <label class="theme" for="dark" aria-label="Dark Mode">◐</label>
+ </div>
+ <div class="offline-note">Diese Version funktioniert ohne JavaScript – auch in einer lokalen iPhone-Vorschau.</div>
+
+ <section id="d1" class="day">
+  <div class="summary"><b>🏰 Disneyland Park</b><span>Peter Pan früh · abends Disney Tales of Magic</span></div>
+  <div class="section-title">Morgen</div>
+  <div class="item"><div class="time">09:00</div><div><div class="title">🎟️ Am Parkeingang sein</div><div class="note">Vor der regulären Öffnung bereit sein.</div></div></div>
+  <div class="item"><div class="time">09:30</div><div><div class="title">🧚 Peter Pan's Flight <span class="star">★★★</span></div><div class="note">Top-Priorität – direkt zuerst.</div></div></div>
+  <div class="item"><div class="time">10:00</div><div class="title">🌀 Alice's Curious Labyrinth</div></div>
+  <div class="item"><div class="time">10:30</div><div class="title">🏰 Schloss + 🐉 Drache</div></div>
+  <div class="item"><div class="time">11:00</div><div class="title">🌍 It's a Small World</div></div>
+  <div class="item"><div class="time">11:30</div><div class="title">🌴 Adventure Isle</div></div>
+
+  <div class="section-title">Mittag & Nachmittag</div>
+  <div class="item"><div class="time">12:15</div><div class="title">🏴‍☠️ Pirates of the Caribbean <span class="star">★★</span></div></div>
+  <div class="item"><div class="time">13:00</div><div><div class="title">🍽️ Mittagessen</div><div class="note">Glutenfreie Optionen für Enya beachten.</div></div></div>
+  <div class="item"><div class="time">14:00</div><div class="title">👻 Phantom Manor <span class="star">★★</span></div></div>
+  <div class="item"><div class="time">14:30</div><div><div class="title">🎃 Frontierland / Halloween</div><div class="note">Puffer; ggf. Parade.</div></div></div>
+  <div class="item"><div class="time">15:30</div><div><div class="title">🎢 Big Thunder Mountain</div><div class="note">OPTIONAL · nur bei Lust und akzeptabler Wartezeit.</div></div></div>
+  <div class="item"><div class="time">16:15</div><div class="title">🔫 Buzz Lightyear Laser Blast <span class="star">★★</span></div></div>
+  <div class="item"><div class="time">17:00</div><div><div class="title">🎬 Mickey's PhilharMagic</div><div class="note">Gute Sitz- und Erholungspause.</div></div></div>
+  <div class="item"><div class="time">17:45</div><div class="title">🚀 Star Tours <span class="star">★★</span></div></div>
+
+  <div class="section-title">Abend</div>
+  <div class="item"><div class="time">18:30</div><div class="title">🍽️ Abendessen + Pause</div></div>
+  <div class="item"><div class="time">19:30</div><div><div class="title">📱 Flexible Stunde</div><div class="note">Kurze Wartezeiten · Favoriten · Main Street.</div></div></div>
+  <div class="item"><div class="time">20:45</div><div><div class="title">📍 Richtung Central Plaza</div><div class="note">Kein Reserved Viewing – gute Sicht suchen.</div></div></div>
+  <div class="item hero"><div class="time">ABENDS</div><div><div class="title">✨ Disney Tales of Magic ★★★</div><div class="note">Spätestens etwa 21:00 Standort behalten. Showzeit in der Disney-App prüfen.</div></div></div>
+ </section>
+
+ <section id="d2" class="day">
+  <div class="summary"><b>🌍 Disney Adventure World</b><span>World of Frozen früh · abends Cascade of Lights</span></div>
+  <div class="section-title">Morgen</div>
+  <div class="item"><div class="time">09:00</div><div class="title">🎟️ Am Parkeingang sein</div></div>
+  <div class="item"><div class="time">09:30</div><div class="title">❄️ Direkt zu World of Frozen <span class="star">★★★</span></div></div>
+  <div class="item"><div class="time">09:40</div><div><div class="title">❄️ Frozen Ever After <span class="star">★★★</span></div><div class="note">Höchste Priorität des Morgens.</div></div></div>
+  <div class="item"><div class="time">10:15</div><div><div class="title">🏔️ Arendelle erkunden</div><div class="note">Fotos und Atmosphäre.</div></div></div>
+  <div class="item"><div class="time">11:00</div><div><div class="title">👸 Anna & Elsa</div><div class="note">OPTIONAL · nur bei vernünftiger Wartezeit.</div></div></div>
+  <div class="item"><div class="time">11:30</div><div class="title">🌸 Raiponce Tangled Spin</div></div>
+
+  <div class="section-title">Mittag & Nachmittag</div>
+  <div class="item"><div class="time">12:00</div><div class="title">🐀 Ratatouille <span class="star">★★</span></div></div>
+  <div class="item"><div class="time">13:00</div><div><div class="title">🍽️ Mittagessen</div><div class="note">Glutenfreie Optionen für Enya beachten.</div></div></div>
+  <div class="item"><div class="time">14:15</div><div class="title">🚗 Cars ROAD TRIP</div></div>
+  <div class="item"><div class="time">15:00</div><div><div class="title">🐶 Slinky Dog Zigzag Spin</div><div class="note">OPTIONAL.</div></div></div>
+  <div class="item"><div class="time">15:30</div><div class="title">🕷️ Spider-Man W.E.B. Adventure <span class="star">★★</span></div></div>
+  <div class="item"><div class="time">16:30</div><div><div class="title">🎩 Mickey and the Magician <span class="star">★★★</span></div><div class="note">Morgens tatsächliche Showzeit in der App prüfen.</div></div></div>
+
+  <div class="section-title">Abend</div>
+  <div class="item"><div class="time">17:30</div><div><div class="title">☕ Pause / Adventure Way</div><div class="note">Oder kurze Wartezeit für Wiederholung.</div></div></div>
+  <div class="item"><div class="time">18:30</div><div class="title">🍽️ Abendessen</div></div>
+  <div class="item"><div class="time">DANACH</div><div class="title">🌙 Frozen / Adventure Way bei Nacht</div></div>
+  <div class="item"><div class="time">RECHT- ZEITIG</div><div><div class="title">📍 Richtung Adventure Bay</div><div class="note">Show-Platz nicht bis zur letzten Minute aufschieben.</div></div></div>
+  <div class="item hero"><div class="time">ABENDS</div><div><div class="title">🌊 Disney Cascade of Lights ★★★</div><div class="note">Tagesabschluss · tatsächliche Uhrzeit in der Disney-App prüfen.</div></div></div>
+ </section>
+
+ <div class="rules">
+  <h3>📱 Park-Regeln</h3>
+  <p><span class="pill">≤ 20 Min.</span> mitnehmen &nbsp; <span class="pill">20–40 Min.</span> abwägen &nbsp; <span class="pill">&gt; 40 Min.</span> eher später</p>
+  <p><b>Premier Access:</b> nicht pauschal kaufen. Bei einzelnen langen Schlangen spontan prüfen.</p>
+  <p><b>Wichtig:</b> Nicht dem Plan hinterherlaufen. Lieber eine Attraktion weniger und Puffer behalten.</p>
+ </div>
+ <div class="footer">Planungszeiten sind Richtwerte · aktuelle Warte- und Showzeiten in der Disneyland Paris App prüfen.</div>
+</main>
+</div>
+</body>
+</html>
